@@ -1,0 +1,28 @@
+<%= form_with(model: [:admin, @employee] ) do |form| %>
+	<%= form.label :name %><br>
+	<%= form.text_field :name %>
+	<p class = 'text-danger'>*<%= @employee.errors[:name].join(',')%></p>
+
+	<%= form.label :gender %><br>
+	<%= form.select :gender, options_for_select(Employee::SEX_TYPES, selected: @employee.gender), prompt: 'Select the Gender' %><br>
+	<p class = 'text-danger'>*<%= @employee.errors[:gender].join(',')%></p>
+
+	<%= form.label :contact_number %><br>
+	<%= form.number_field :contact_number %><br>
+	<p class = 'text-danger'>*<%= @employee.errors[:contact_number].join(',')%></p>
+
+	<%= form.label :address %><br>
+	<%= form.text_field :address %><br><br>
+	<p class = 'text-danger'>*<%= @employee.errors[:address].join(',')%></p>
+
+	<%= form.label :email %><br>
+	<%= form.text_field :email %><br><br>
+	<p class = 'text-danger'>*<%= @employee.errors[:email].join(',')%></p>
+
+	<%= form.label :position %><br>
+	<%= form.select :position_id, options_for_select(positions,
+	selected: @employee.position_id), prompt: 'Select the Role' %><br>
+	<p class = 'text-danger'>*<%= @employee.errors[:position_id].join(',')%></p>
+
+	<%= form.submit :Submit %><br>
+<% end %>

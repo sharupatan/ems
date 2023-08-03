@@ -1,0 +1,11 @@
+<%= form_with model: @project do |form| %>
+	<%= form.label :name %><br>
+	<%= form.text_field :name %>
+	<p class = 'text-danger'>*<%#= @employee.errors[:name].join(',')%></p>
+
+	<%= form.label :status %><br>
+	<%= form.text_field :status %><br>
+	<p class = 'text-danger'>*<%#= @employee.errors[:gender].join(',')%></p>
+
+	<%= form.submit :Submit %><br>
+<% end %>

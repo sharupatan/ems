@@ -1,0 +1,41 @@
+<h1 class="mt-4">Employees</h1>
+<% extend Pagy::Frontend %>
+<div class="card mb-4">
+	<div class="card-header">
+		<i class="fas fa-table me-1"></i>
+		DataTable
+		<%= search_form_for @q, url: :admin_employees_path do |f| %>
+			# Search if the name field contains...
+			<%= f.label :name_cont %>
+			<%= f.search_field :name_cont %>
+
+			<%= f.submit %>
+		<% end %>
+	</div>
+	<div class="card-body">
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Number</th>
+				<th>Address</th>
+				<th>Email</th>
+			</tr>
+			
+			<% @employees.each do |employee| %>
+				<tr>
+					<td><%= employee.name %></td>
+					<td><%= employee.gender %></td>
+					<td><%= employee.contact_number %></td>
+					<td><%= employee.address %></td>
+					<td><%= employee.email %></td>
+					<td><%= link_to :Show, admin_employee_path(employee) %></td>
+					<td><%= link_to :Edit, edit_admin_employee_path(employee) %></td>
+					<td><%= link_to :Delete, admin_employee_path(employee), data: {turbo_method: :delete} %><td>
+				</tr>
+			<% end %>
+		</table>
+		<%== pagy_nav(@pagy) if defined?(@pagy) %>
+	</div>
+</div>
+

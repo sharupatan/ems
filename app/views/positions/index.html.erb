@@ -1,0 +1,19 @@
+<%= render 'partials/navbar' %>
+
+
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Position</th>
+		<th>Employees Enrolled</th>
+	</tr>
+	<% @positions.each do |position| %>
+		<tr>
+			<td><%= position.id %></td>
+			<td><%= position.name %></td>
+			<td><%= position.employees.count %></td>
+			<td><%= link_to :edit, "positions/#{position.id}/edit" %></td>
+			<td><%= link_to :delete, position_path(position), data: { turbo_method: :delete } %></td>
+		</tr>
+	<% end %>
+</table>

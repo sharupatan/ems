@@ -1,0 +1,22 @@
+<%= render 'partials/navbar' %>
+
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @employee.name %></h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"><%= @employee.gender %></h6>
+    <p class="card-text"><strong>Address: </strong><%= @employee.address %></p>
+    <p class="card-text"><strong>Projects: </strong><%= @employee.projects.count %></p>
+    <p class="card-text"><strong>Role: </strong><%= @employee.position[:name] %></p>
+    <a href="#" class="card-link"><%= @employee.contact_number %></a>
+    <a href="#" class="card-link"><%= @employee.email %></a>
+  </div>
+</div>
+
+
+
+
+
+
+
+

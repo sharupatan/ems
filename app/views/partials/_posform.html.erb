@@ -1,0 +1,6 @@
+<%= form_with model: @position do |form| %>
+	<%= form.label :name %><br>
+	<%= form.text_field :name %>
+	<p class = 'text-danger' >*<%= @position.errors[:name][0] %><br>
+  <%= form.submit :Submit, class: 'mt-2' %>
+<% end %>

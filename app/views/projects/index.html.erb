@@ -1,0 +1,19 @@
+<%= render 'partials/navbar' %>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Status</th>
+		<th>Employees-Enrolled</th>
+	</tr>
+	
+	<% @projects.each do |project| %>
+		<tr>
+			<td><%= project.name %></td>
+			<td><%= project.status %></td>
+			<td><%= project.employees.count %></td>
+			<td><%= link_to :Edit, "projects/#{project.id}/edit" %></td>
+			<td><%= link_to :Delete, project_path(project), data: {turbo_method: :delete} %><td>
+		</tr>
+	<% end %>
+</table>
