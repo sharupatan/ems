@@ -4,13 +4,6 @@
 	<div class="card-header">
 		<i class="fas fa-table me-1"></i>
 		DataTable
-		<%= search_form_for @q, url: :admin_employees_path do |f| %>
-			# Search if the name field contains...
-			<%= f.label :name_cont %>
-			<%= f.search_field :name_cont %>
-
-			<%= f.submit %>
-		<% end %>
 	</div>
 	<div class="card-body">
 		<table>
